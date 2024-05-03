@@ -1,10 +1,9 @@
-import React from 'react'
-import { TOKEN_POST, USER_GET } from './api';
+import React from 'react';
+import { TOKEN_POST, USER_GET } from 'Api';
 
 export const UserContext = React.createContext();
 
 export const UserStorage = ({ children }) => {
-
   const [data, setData] = React.useState(null);
   const [login, setLogin] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
@@ -33,5 +32,5 @@ export const UserStorage = ({ children }) => {
     <UserContext.Provider value={{ userLogin, data }}>
       {children}
     </UserContext.Provider>
-  )
-}
+  );
+};
