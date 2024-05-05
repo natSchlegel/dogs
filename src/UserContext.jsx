@@ -1,5 +1,5 @@
 import React from 'react';
-import { TOKEN_POST, USER_GET } from 'Api';
+import { TOKEN_POST, USER_GET } from '../src/Api';
 
 export const UserContext = React.createContext();
 
