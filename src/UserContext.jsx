@@ -1,5 +1,6 @@
-import React from 'react';
-import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from './api';
+import React from "react";
+import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from "./api";
+import { func } from "prop-types";
 
 export const UserContext = React.createContext();
 
@@ -21,6 +22,7 @@ export const UserStorage = ({ children }) => {
           if (!response.ok) throw new Error("Token Inválido");
           await getUser(token);
         } catch (err) {
+          userLogout();
         } finally {
           setLoading(false);
         }
@@ -37,16 +39,34 @@ export const UserStorage = ({ children }) => {
     setLogin(true);
   }
 
+  async function userLogout() {
+    setData(null);
+    setError(null);
+    setLoading(false);
+    setLogin(false);
+    window.localStorage.removeItem("token");
+  }
+
   async function userLogin(username, password) {
-    const { url, options } = TOKEN_POST({ username, password });
-    const tokenRes = await fetch(url, options);
-    const { token } = await tokenRes.json();
-    window.localStorage.setItem('token', token);
-    getUser(token);
+    try {
+      setError(null);
+      setLoading(true);
+      const { url, options } = TOKEN_POST({ username, password });
+      const tokenRes = await fetch(url, options);
+      if (!tokenRes.ok) throw new Error(`Error: ${tokenRes.statusText}`);
+      const { token } = await tokenRes.json();
+      window.localStorage.setItem("token", token);
+      getUser(token);
+    } catch (err) {
+      setError(err.message);
+      setLogin(false);    
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
-    <UserContext.Provider value={{ userLogin, data }}>
+    <UserContext.Provider value={{ userLogin, data, userLogout, error, loading, login }}>
       {children}
     </UserContext.Provider>
   );
