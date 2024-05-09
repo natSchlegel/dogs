@@ -25,7 +25,8 @@ const LoginForm = () => {
       <form action="" onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="Senha" type="password" name="password" {...password} />
-        <Button>Entrar</Button>
+        {loading ? <Button disabled>Carregando...</Button> : <Button>Entrar</Button>}
+        
         {error && <p>{error}</p>}
       </form>
       <Link to="/login/criar">Cadastro</Link>
@@ -34,3 +35,4 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+ 
