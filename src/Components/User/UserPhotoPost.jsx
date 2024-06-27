@@ -3,7 +3,7 @@ import React from 'react'
 const UserPhotoPost = () => {
   return (
     <div>
-      
+      UserPhotoPost
     </div>
   )
 }

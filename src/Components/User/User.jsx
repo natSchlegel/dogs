@@ -14,7 +14,7 @@ const User = () => {
       <Routes>
         <Route path="/" element={<Feed />}></Route>
         <Route path="postar" element={<UserPhotoPost />}></Route>
-        <Route path="estatisticas" element={<UserStats />}></Route>
+        <Route path="estatistica" element={<UserStats />}></Route>
       </Routes>
     </section>
   );
