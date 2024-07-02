@@ -5,8 +5,6 @@ import { Routes, Route } from "react-router-dom";
 import UserPhotoPost from "./UserPhotoPost";
 import UserStats from "./UserStats";
 
-
-
 const User = () => {
   return (
     <section className="container">

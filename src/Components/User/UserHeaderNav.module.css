@@ -26,5 +26,15 @@
     box-shadow: 0 0 0 3px #eee;
     border-color: #333;
     outline: none;
+}
 
+.nav a:global(.active) {
+    background: white;
+    box-shadow: 0 0 0 3px #fea;
+    border-color: #fb1;
+}
+
+
+.nav a:global(.active) svg > * {
+    fill: #fb1;
 }
