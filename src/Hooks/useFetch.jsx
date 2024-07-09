@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const useFetch = () => {
   const [data, setData] = React.useState(null);
@@ -15,6 +15,7 @@ const useFetch = () => {
       json = await response.json();
       if (response.ok === false) throw new Error(json.message);
     } catch (err) {
+      json = null;
       setError(err.message);
     } finally {
       setData(json);

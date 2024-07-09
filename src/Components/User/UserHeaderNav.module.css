@@ -28,13 +28,13 @@
   outline: none;
 }
 
-.nav a:global(.active) {
+.nav :global(a.active) {
   background: white;
   box-shadow: 0 0 0 3px #fea;
   border-color: #fb1;
 }
 
-.nav a:global(.active) svg > * {
+.nav :global(a.active) svg > * {
   fill: #fb1;
 }
 
@@ -43,8 +43,8 @@
   border-radius: 0.2rem;
   height: 40px;
   width: 40px;
-  display: flex;
   padding: 0px;
+  display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
@@ -53,13 +53,13 @@
 }
 
 .mobileButton::after {
-  content: "";
+  content: '';
   display: block;
   width: 1.2rem;
   height: 2px;
+  border-radius: 2px;
   background: currentColor;
   box-shadow: 0 6px currentColor, 0 -6px currentColor;
-  border-radius: 2px;
   transition: 0.2s;
 }
 
