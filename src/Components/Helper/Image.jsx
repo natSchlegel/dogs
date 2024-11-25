@@ -3,7 +3,6 @@ import styles from "./Image.module.css";
 
 const Image = ({ alt, ...props }) => {
   const [skeleton, setSkeleton] = React.useState(true);
-  
   function handleLoad({ target }) {
     setSkeleton(false);
     target.style.opacity = 1;
