@@ -4,6 +4,9 @@
 logs
 **/*.backup.*
 **/*.back.*
+dist/*.map
+dist/**/*.map
+dist/**/*.log
 
 node_modules
 bower_components
